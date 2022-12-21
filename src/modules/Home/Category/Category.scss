@@ -1,0 +1,30 @@
+.categories{
+    
+    .categories_title{
+        text-align: center;
+        width: 60vw;
+        margin: auto;
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 5px;
+        background-color: #8db6d04b;
+        box-shadow: -10px 10px 10px rgba(rgb(232, 221, 221), 0.5);
+    }
+    .container{
+        max-width: 85vw;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+        .button{
+            margin: 10px;
+            span{
+                margin: 10px;
+                padding: 10px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,95 @@
+.course{
+    background-color: #8db6d0;
+    padding: 40px 0;
+    .course_title{
+        text-align: center;
+        width: 60vw;
+        margin: auto;
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 5px;
+        background-color: #8db6d04b;
+        box-shadow: -10px 10px 10px rgba(rgb(232, 221, 221), 0.5);
+
+    }
+    .mySwiper{
+        max-width: 85%;
+        .card_item{
+            margin: 15px 0;
+            .card{
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s ease-out;
+            box-shadow: -10px 10px 10px rgba(rgb(43, 41, 41), 0.5);
+            cursor: pointer; 
+            transition: all 0.5;
+            &:hover{
+                background-color: #8db6d0;
+                transform: scale(1.1);
+                -webkit-transform: scale(1.1); 
+                -moz-transform: scale(1.1); 
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 10px;
+            }
+            
+        }
+        }
+    }
+
+
+    // swipper
+    .swiper-grid-column>.swiper-wrapper {
+        flex-direction: row !important;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+    .swiper-wrapper {
+        padding-top: 50px;
+    }
+    .swiper-slide {
+        margin-top: 0 !important;
+    }
+    .swiper-pagination-bullet {
+        width: 15px;
+        height: 15px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    .swiper-pagination-bullet-active {
+        background: #E6E5A3;
+    }
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: -10px !important;
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .course{
+        .course_title{
+            font-size: 20px;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: block;
+            color: #ece81d;
+        }  
+    }
+}
