@@ -1,26 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import courseAPI from "../../services/courseAPI";
+import "./ShowCategory.scss";
 
-import { useNavigate } from "react-router-dom";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Navigation, Pagination } from "swiper";
-import { Card, Col, Row } from "react-bootstrap";
-// import "./Course.scss";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useDispatch } from "react-redux";
-import useRequest from "../../Hooks/useRequest";
 
 const ShowCategory = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  const [key, setKey] = useState("home");
+  const [key, setKey] = useState("BackEnd");
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     (async () => {
@@ -33,48 +27,51 @@ const ShowCategory = () => {
     })();
   }, []);
 
-  // const { data: category } = useRequest(() => courseAPI.getShowCatagory());
-  // console.log(category);
-  // if (!category) {
-  //   return null;
-  // }
   const [showCategories, setShowCategories] = useState([]);
   useEffect(() => {
     (async () => {
-      const data = await courseAPI.getShowCatagory(showCategories);
+      const data = await courseAPI.getShowCatagory(key);
       setShowCategories(data);
       console.log(data);
     })();
-  }, []);
+  }, [key]);
   return (
-    <div>
+    <div className="show container-fluid" id="show">
       <Tabs
         id="controlled-tab-example"
-        className="mb-3"
+        className="mb-3 tabs"
         onSelect={(k) => setKey(k)}
       >
-        {categories.map((item, i) => (
-          <Tab
-            eventKey={item.maDanhMuc}
-            title={item.tenDanhMuc}
-            key={item.maDanhMuc}
-          >
-            {showCategories.map((item, i) => (
-              <div key={i} style={{ width: "300px" }}>
-                {/* <Card onClick={() => navigate(`/course/${item.maKhoahoc}`)}>
-                <Card.Img 
-                    variant="top"
-                    src={item.hinhAnh}
-                    alt={item.tenKhoaHoc}
-                  />
-                  <Card.Body>
-                    <Card.Title>{item.tenKhoaHoc}</Card.Title>
-                  </Card.Body>
-                </Card> */}
-              </div>
-            ))}
-          </Tab>
-        ))}
+        {categories.length > 0 &&
+          categories.map((item, i) => (
+            <Tab
+              eventKey={item.maDanhMuc}
+              title={item.tenDanhMuc}
+              key={item.maDanhMuc}
+              className="show_list row"
+            >
+              {showCategories.reverse().map((item, i) => (
+                <div
+                  className="col-xs-12 col-sm-6 col-md-4 show_item"
+                  key={item.maKhoaHoc}
+                >
+                  <Card
+                    onClick={() => navigate(`/course/${item.maKhoaHoc}`)}
+                    className="card_item"
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={item.hinhAnh}
+                      alt={item.tenKhoaHoc}
+                    />
+                    <Card.Body>
+                      <Card.Title>{item.tenKhoaHoc}</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </Tab>
+          ))}
       </Tabs>
     </div>
   );

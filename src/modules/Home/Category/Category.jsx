@@ -20,11 +20,11 @@ const Category = () => {
   return (
     <div id="categories" className="categories">
       <h1 className="categories_title">CHUYÊN NGÀNH HỌC</h1>
-      <div className="container">
+      <div className="container-fluid">
         {categories.map((item) => (
           <div key={item.maDanhMuc}>
             <Button
-              className="btn btn-light mx-2"
+              className="btn btn-light mx-2 categories_btn"
               onClick={() => navigate("/category")}
             >
               <span>{item.tenDanhMuc}</span>
@@ -32,6 +32,7 @@ const Category = () => {
           </div>
         ))}
       </div>
+      <hr />
     </div>
   );
 };

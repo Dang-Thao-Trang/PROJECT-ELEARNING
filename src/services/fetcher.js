@@ -34,4 +34,5 @@ fetcher.interceptors.request.use(
   }
 );
 
+export const UserLogin = "UserLogin";
 export default fetcher;

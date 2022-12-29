@@ -1,0 +1,17 @@
+.authentication {
+  background-image: url("https://jobflare-wordpress-public.s3.amazonaws.com/wp-content/uploads/2020/08/Web-Developer-Header.png");
+  position: relative;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+  margin-top: 20px;
+  padding: 100px 0;
+}
+.authentication .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(133, 130, 130, 0.303);
+}/*# sourceMappingURL=Auth.css.map */

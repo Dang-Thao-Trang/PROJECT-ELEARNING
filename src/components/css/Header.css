@@ -1,0 +1,182 @@
+.header {
+  position: absolute;
+  background-color: #000;
+  transition: box-shadow ease 0.3s;
+  background: ease 0.5s;
+  z-index: 999;
+}
+.header .navbar .container {
+  max-width: 90vw;
+}
+.header .navbar .container .navbar-brand img {
+  width: 150px;
+  height: 60px;
+}
+.header .navbar .container .navbar-toggler {
+  border: white !important;
+  background-color: yellowgreen !important;
+  padding: 10px !important;
+}
+.header .navbar .container .navbar-collapse .menue a {
+  text-decoration: none;
+  color: aliceblue;
+  line-height: 1.8;
+  font-size: 20px;
+  margin: 5px;
+  padding: 0;
+  transition: all 0.5;
+}
+.header .navbar .container .navbar-collapse .menue a:hover {
+  color: rgb(172, 205, 124);
+}
+.header .navbar .container .navbar-collapse .menue .search {
+  margin-left: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.header .navbar .container .navbar-collapse .menue .search .input {
+  border-radius: 10px 0 0 10px;
+}
+.header .navbar .container .navbar-collapse .menue .search .btn_search {
+  font-size: 15px;
+  padding: 2px 6px;
+  border-radius: 0 10px 10px 0;
+}
+.header .signedin {
+  margin: -10px 10px 0 0;
+}
+.header .signedin a {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  font-weight: 800;
+}
+.header .auth .logo_sign {
+  padding: 3px;
+  border: 1px solid chocolate;
+  font-size: 30px;
+  border-radius: 50%;
+}
+.header .auth a {
+  color: wheat;
+  text-decoration: none;
+  font-size: 15px;
+  opacity: 0.8;
+  transition: all 0.5;
+}
+.header .auth a:hover {
+  opacity: 1;
+  color: greenyellow;
+}
+
+.on-scroll-header {
+  padding: 0px !important;
+  transition: box-shadow ease 0.3s;
+  background: ease 0.5s;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+@media screen and (max-width: 1271px) {
+  .header .navbar .container .navbar-brand img {
+    width: 130px;
+  }
+  .header .navbar .container .navbar-collapse .menue a {
+    line-height: 2.1;
+    font-size: 18px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search {
+    margin-left: 10px !important;
+    margin-right: -70px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .input {
+    width: 60%;
+    font-size: 20px;
+    padding: 12px 5px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .btn_search {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .header .navbar .container {
+    max-width: 95vw;
+  }
+  .header .navbar .container .navbar-brand img {
+    width: 100px;
+  }
+  .header .navbar .container .navbar-collapse .menue a {
+    font-size: 15px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search {
+    margin-right: -80px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .input {
+    width: 50%;
+    font-size: 16px;
+    padding: 5px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .btn_search {
+    font-size: 15px;
+  }
+  .header .signedin {
+    margin: -10px 20px 0 10px;
+  }
+  .header .signedin .user span {
+    line-height: 5px;
+    font-size: 15px;
+  }
+  .header .signedin .dropdown-menu {
+    font-size: 15px;
+  }
+  .header .auth {
+    margin-right: -10px;
+  }
+  .header .auth .logo_sign, .header .auth .logo_sign {
+    padding: 2px;
+    font-size: 20px;
+  }
+  .header .auth a {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header .navbar .container {
+    max-width: 80vw;
+  }
+  .header .navbar .container .navbar-brand img {
+    width: 200px;
+  }
+  .header .show .navbar-nav {
+    padding-top: 20px;
+    gap: 0 !important;
+  }
+  .header .menue a {
+    margin: 0px 30px;
+    border-bottom: 1px solid #3D0000;
+  }
+  .header .signedin .user {
+    text-align: center;
+  }
+  .header .signedin .btn-logout {
+    margin: 20px 20px;
+    display: block;
+  }
+  .header .auth {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header .auth .logo_sign {
+    margin: 10px 0;
+    font-size: 25px;
+  }
+  .header .auth .signin, .header .auth .signup {
+    margin: 0 auto;
+  }
+  .header .auth .signin a, .header .auth .signup a {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .navbar .nav-link {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=Header.css.map */

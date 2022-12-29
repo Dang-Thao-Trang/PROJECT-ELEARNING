@@ -1,13 +1,16 @@
 import fetcher from "./fetcher";
 const courseAPI = {
   getCategory: () => {
-    return fetcher.get("QuanLyKhoaHoc/LayDanhMucKhoaHoc");
+    return fetcher.get("QuanLyKhoaHoc/LayDanhMucKhoaHoc", {
+      params: { maNhom: "GP03" },
+    });
   },
 
-  getShowCatagory: () => {
+  getShowCatagory: (maDanhMuc) => {
     return fetcher.get("QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc", {
       params: {
         maNhom: "GP03",
+        maDanhMuc,
       },
     });
   },
@@ -26,6 +29,12 @@ const courseAPI = {
         maKhoaHoc: courseId,
       },
     });
+  },
+
+  searchCourses: (nameCourses) => {
+    return fetcher.get(
+      `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${nameCourses}`
+    );
   },
 };
 

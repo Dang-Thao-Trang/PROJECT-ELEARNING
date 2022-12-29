@@ -1,0 +1,15 @@
+.admin .container-fluid {
+  max-width: 65vw;
+}
+.admin .container-fluid .row {
+  background-color: rgb(48, 132, 104);
+  border-radius: 30px;
+  padding: 20px;
+}
+.admin .container-fluid .row .admin_title {
+  color: white;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  text-align: center;
+}/*# sourceMappingURL=AdminUser.css.map */

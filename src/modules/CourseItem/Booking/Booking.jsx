@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import useRequest from "../../../Hooks/useRequest";
 import courseAPI from "../../../services/courseAPI";
 import "./Booking.scss";
@@ -8,20 +9,19 @@ const Booking = ({ courseId }) => {
   if (!course) {
     return null;
   }
-  console.log(course);
 
   return (
     <div className="booking container-fluid">
       <div className="overlay"></div>
       <div className="row">
-        <div className="booking_img col-6">
+        <div className="booking_img col-xs-12 col-sm-6">
           <img src={course.hinhAnh} />
         </div>
 
-        <div className="booking_detail col-6">
+        <div className="booking_detail col-xs-12 col-sm-6">
           <div className="detail_item">
             <span className="detail_title active">
-              Tên khoá học:
+              khoá học:
               <span>{course.tenKhoaHoc}</span>
             </span>
           </div>
@@ -49,6 +49,7 @@ const Booking = ({ courseId }) => {
               <span>{course.ngayTao}</span>
             </span>
           </div>
+          <div className="btn btn-warning">Đăng ký ngay</div>
         </div>
       </div>
     </div>

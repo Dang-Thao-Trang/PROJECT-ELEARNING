@@ -1,0 +1,98 @@
+
+.footer{
+    position: relative;
+    z-index: 100;
+    padding: 50px 0;
+    .container{
+        max-width: 80vw;
+        margin: 10px auto;
+    }
+    //top
+    .ft_top{    
+        .info_email{
+            padding: 10px 20px;
+            .info_title{
+                background-color: #9EA1D4;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 24px;
+                font-weight: 600;
+                padding: 10px;
+                letter-spacing: 1.2px;
+            }
+            p{
+                margin: 20px 0;
+                letter-spacing: 1.2px;
+            }
+            .btn_info{
+                background-color: #FD8A8A;
+            }
+            }
+        .direct{
+                margin: 10px auto;
+                text-align: center;
+            .ft_direrct{
+                background-color: #95b66dda;
+                p{
+                    margin: 3px;
+                    padding: 5px 0;
+                }
+                .btn_direct{
+                    background-color: #3C6255;
+                }
+            }
+            .ft_img{
+                width: 400px;
+                height: 150px;
+                margin: auto;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            } 
+            .btn{
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                    transition: all 0.5;
+                    &:hover{
+                        color: rgb(216, 155, 41);
+                    }
+                }
+            }  
+        }
+    }
+    //center
+    .ft_center{
+        margin: 20px auto;
+        h6{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        p{
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.435);
+            margin: 5px 0;
+        }
+    }
+    // bottom
+    .ft_bottom{
+        // display: flex;
+        .write{
+            p{
+                font-size: 18px;
+                color: rgba(255, 255, 255, 0.435);
+                
+            }
+        }
+        .icon{
+            text-align: right;
+            margin-right: -100px;
+            a{
+                margin: 0px 10px;
+                font-size: 30px;
+            }
+        }
+        
+    }
+}

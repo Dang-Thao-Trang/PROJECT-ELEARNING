@@ -18,9 +18,7 @@ const Course = () => {
     (async () => {
       try {
         const data = await courseAPI.getCourse();
-        console.log(data);
         setCourse(data);
-        console.log(setCourse);
       } catch (error) {
         console.log(error);
       }
@@ -80,11 +78,6 @@ const Course = () => {
                   src={item.hinhAnh}
                   alt={item.tenKhoaHoc}
                 />
-                {/* <Card.Body>
-                  <Card.Title className="text-dark">
-                    {item.maKhoahoc}
-                  </Card.Title>
-                </Card.Body> */}
               </Card>
             </div>
             <span></span>

@@ -1,0 +1,74 @@
+.signup{ 
+    .form_signup{
+        padding: 50px;
+        width: 45vw;
+        margin: 50px auto;
+        background-color: rgba(201, 214, 119, 0.772);
+    } 
+    color: chocolate;
+}
+
+   
+    @media screen and (max-width: 992px) {
+       .signup{
+           padding: 30px ;
+           .form_signup{
+               padding:  30px 50px;
+               .title_signup{
+                   font-size: 18px;
+                   margin-bottom: 30px !important;
+                   padding: 5px;
+               } 
+               .input-group{
+                   margin: 25px 0 !important;
+               }
+           }
+           .footer_form{
+               button{
+                   padding: 5px 10px;
+                   font-size: 18px;
+               }
+           }            
+       }
+    }
+
+    @media screen and (max-width: 576px) {
+       .signup{
+           top: 40%;
+           padding: 30px ;
+           max-width: 80vw;
+           .form_signup{
+               width: 75vw !important;
+               .title_signup{
+                   font-size: 18px;
+                   margin-bottom: 30px !important;
+                   padding: 5px;
+               } 
+               .input-group{
+                   margin: 25px 0 !important;
+               }
+           }           
+       }
+    }
+
+    @media screen and (max-width: 450px) {
+       .signup{
+           .form_signup{
+               padding-bottom: 0;
+               .title_signup{
+                   font-size: 16px;
+               } 
+               .input-group{
+                   margin: 15px 0 !important;
+                   .form-control{
+                       font-size: 15px;
+                   }
+                   .footer_form{
+                       margin-bottom: 0;
+                   } 
+               }
+               
+           } 
+                
+       }
+    }
