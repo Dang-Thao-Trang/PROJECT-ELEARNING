@@ -40,17 +40,39 @@
 
 // export default Search;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
+import courseAPI from "../../services/courseAPI";
 
 const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [keysearch, setKeysearch] = useState([]);
+
+  const redirectUrl = searchParams.get("tenKhoaHoc");
+  console.log(redirectUrl);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await courseAPI.searchCourses(redirectUrl);
+        setKeysearch(data);
+        console.log(data);
+      } catch (error) {
+        setKeysearch([]);
+      }
+    })();
+  }, [redirectUrl]);
+  // paginate
   return (
     <div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
-        consequatur maiores voluptatibus in corporis iusto corrupti assumenda
-        blanditiis earum dicta voluptate incidunt doloremque, ratione, adipisci
-        iste. Consequatur vitae modi officiis!
-      </p>
+      {keysearch.map((item) => (
+        <div className="card_item" key={item.maKhoaHoc}>
+          <Card>
+            <Card.Img variant="top" src={item.hinhAnh} alt={item.tenKhoaHoc} />
+          </Card>
+        </div>
+      ))}
     </div>
   );
 };

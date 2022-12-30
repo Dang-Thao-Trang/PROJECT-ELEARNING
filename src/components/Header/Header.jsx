@@ -3,10 +3,6 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserEdit, FaUserLock, FaUserPlus } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-
-import { Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-
 import "./Header.scss";
 
 // boostrap
@@ -27,11 +23,10 @@ const Header = () => {
     defaultValues: { tenKhoaHoc: "" },
   });
   const onSubmit = (value) => {
-    // evt.preventDefault();
     if (value === "") {
       return;
     } else {
-      navigate(`/search?tenKhoaHoc=${value}`);
+      navigate(`/search?tenKhoaHoc=${value.tenKhoaHoc}`);
       reset({ tenKhoaHoc: "" });
     }
   };
@@ -75,34 +70,18 @@ const Header = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="navbars">
             <Nav className="mx-auto gap-2 menue">
-              {/* <Nav.Link href="/">Home</Nav.Link> */}
               <Link to="/">Home</Link>
               <Link to="/category">Danh Muc</Link>
               <Link to="/#course">Khoá Học</Link>
               <Link to="/#footer">Tư vấn</Link>
-              {/* <form onSubmit={handleSubmit(onSubmitSearch)}> */}
-              {/* <Form className="d-flex search">
-                  <Form.Control
-                    type="search"
-                    placeholder="Tìm khoá học"
-                    className="input"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-warning" className="btn_search">
-                    <FaSearch />
-                  </Button>
-                </Form> */}
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="relative mx-auto text-gray-600 lg:block hidden flex-1"
-              >
+              <form onSubmit={handleSubmit(onSubmit)} className="d-flex search">
                 <input
                   {...register("tenKhoaHoc")}
-                  className="border-2 w-[500px] border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
+                  className="input"
                   type="search"
-                  placeholder="Nhập khóa học bạn cần tìm.... "
+                  placeholder="Nhập khóa học "
                 />
-                <button type="submit" className="btn btn-danger">
+                <button type="submit" className="btn btn-warning">
                   Tìm
                 </button>
               </form>

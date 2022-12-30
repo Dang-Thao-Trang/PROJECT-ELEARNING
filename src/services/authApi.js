@@ -12,6 +12,10 @@ const authAPI = {
     });
   },
 
+  getUserInfo: () => {
+    return fetcher.post("QuanLyNguoiDung/ThongTinTaiKhoan");
+  },
+
   updateUserClient: (values) => {
     return fetcher.put("QuanLyNguoiDung/CapNhatThongTinNguoiDung", {
       maNhom: "GP01",

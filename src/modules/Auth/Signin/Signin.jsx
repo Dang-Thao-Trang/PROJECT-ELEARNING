@@ -41,6 +41,7 @@ const Signin = () => {
     const redirectUrl = searchParams.get("redirectUrl");
     return <Navigate to={redirectUrl || "/"} replace />;
   }
+  console.log(searchParams.get("redirectUrl"));
 
   return (
     <div id="signin" className="signin">

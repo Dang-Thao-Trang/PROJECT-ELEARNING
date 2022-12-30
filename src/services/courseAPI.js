@@ -2,14 +2,14 @@ import fetcher from "./fetcher";
 const courseAPI = {
   getCategory: () => {
     return fetcher.get("QuanLyKhoaHoc/LayDanhMucKhoaHoc", {
-      params: { maNhom: "GP03" },
+      params: { maNhom: "GP01" },
     });
   },
 
   getShowCatagory: (maDanhMuc) => {
     return fetcher.get("QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc", {
       params: {
-        maNhom: "GP03",
+        maNhom: "GP01",
         maDanhMuc,
       },
     });
@@ -18,7 +18,7 @@ const courseAPI = {
   getCourse: () => {
     return fetcher.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc", {
       params: {
-        maNhom: "GP03",
+        maNhom: "GP01",
       },
     });
   },
@@ -32,9 +32,20 @@ const courseAPI = {
   },
 
   searchCourses: (nameCourses) => {
-    return fetcher.get(
-      `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${nameCourses}`
-    );
+    return fetcher.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc", {
+      params: {
+        tenKhoaHoc: nameCourses,
+      },
+    });
+  },
+
+  // dang ky khoa hoc
+  getRegister: (registered) => {
+    return fetcher.post("QuanLyKhoaHoc/DangKyKhoaHoc", registered);
+  },
+
+  getDeleteRegister: (registered) => {
+    return fetcher.post("QuanLyKhoaHoc/HuyGhiDanh", registered);
   },
 };
 

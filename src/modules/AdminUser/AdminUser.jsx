@@ -1,35 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 // import { useSelector } from "react-redux";
-import { logout } from "../../slices/authSlice";
+import { logout, signin } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import authAPI from "../../services/authApi";
+import Table from "react-bootstrap/Table";
+
 import "./AdminUser.scss";
+import courseAPI from "../../services/courseAPI";
 
 const AdminUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, user } = useSelector((state) => state.auth);
+  // const { loading} = useSelector((state) => state.auth);
+  const [useUpdate, setUseUpdate] = useState([]);
+  const [detailCourse, setDetailCourse] = useState([]);
 
-  const { register, handleSubmit, formState } = useForm({
+  const registerDetail = async () => {
+    try {
+      const { chiTietKhoaHocGhiDanh, ...data } = await authAPI.getUserInfo();
+      reset({ ...data });
+      setDetailCourse(chiTietKhoaHocGhiDanh);
+      console.log(chiTietKhoaHocGhiDanh);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    registerDetail();
+  }, []);
+
+  const { register, handleSubmit, formState, reset } = useForm({
     defaultValues: {
-      taiKhoan: `${user.taiKhoan}`,
-      //   matKhau: `${user.password}`,
+      taiKhoan: "",
       matKhau: "",
-      email: `${user.email}`,
-      soDt: `${user.soDT}`,
-      maLoaiNguoiDung: "KhachHang",
-      hoTen: `${user.hoTen}`,
+      hoTen: "",
+      soDT: "",
+      email: "",
     },
     mode: "onTouched",
   });
 
   const onSubmit = (values) => {
-    authAPI.updateUserClient(values);
-    alert("Để kiểm tra xem đã cập nhật thành công vui lòng đăng nhập lại");
-    alert("Nếu không thành công vui lòng điền lại email khác");
-    console.log(values);
+    (async () => {
+      try {
+        const data = await authAPI.updateUserClient(values);
+        setUseUpdate(data);
+        dispatch(
+          signin({ taiKhoan: values.taiKhoan, matKhau: values.matKhau })
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  };
+
+  const { user } = useSelector((state) => state.auth);
+
+  const handleDelete = (values) => {
+    (async () => {
+      try {
+        await courseAPI.getDeleteRegister({
+          maKhoaHoc: values,
+          taiKhoan: user.taiKhoan,
+        });
+        registerDetail();
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   };
 
   const onLogOut = () => {
@@ -51,8 +93,7 @@ const AdminUser = () => {
                 className="form-control input"
                 placeholder="Tài khoản"
                 type="text"
-                input="text"
-                value={user.taiKhoan}
+                // input="text"
                 disabled
               />
             </div>
@@ -74,9 +115,9 @@ const AdminUser = () => {
                 })}
               />
             </div>
-            {/* <div className="w-100 text-danger">
-          {errors?.matKhau && <span>{errors?.matKhau?.message}</span>}
-        </div> */}
+            <div className="w-100 text-danger">
+              {errors?.matKhau && <span>{errors?.matKhau?.message}</span>}
+            </div>
             <div className="account my-3 px-4 input-group">
               <input
                 className="form-control input"
@@ -105,7 +146,7 @@ const AdminUser = () => {
               <input
                 className="form-control input"
                 placeholder="Số điện thoại"
-                {...register("soDt", {
+                {...register("soDT", {
                   required: {
                     value: true,
                     message: "Số điện thoại không để trống",
@@ -122,7 +163,7 @@ const AdminUser = () => {
               />
             </div>
             <div className="w-100 text-danger">
-              {errors?.soDt && <span>{errors?.soDt?.message}</span>}
+              {errors?.soDT && <span>{errors?.soDT?.message}</span>}
             </div>
             <div className="account my-3 px-4 input-group">
               <input
@@ -143,7 +184,7 @@ const AdminUser = () => {
             </div>
             <div className="text-center footer_form">
               <button
-                disabled={loading}
+                // disabled={loading}
                 className="btn update btn-warning my-1"
               >
                 Cập nhật
@@ -158,6 +199,36 @@ const AdminUser = () => {
         >
           Đăng xuất
         </div>
+      </div>
+
+      {/* Dang ky khoa hoc */}
+
+      <div className="container">
+        <h4>Khoá học bạn tham gia</h4>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên Khoá Học</th>
+              <th>Mô tả</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {detailCourse.map((item, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{item.tenKhoaHoc}</td>
+                <td>{item.moTa}</td>
+                <td>
+                  <button onClick={() => handleDelete(item.maKhoaHoc)}>
+                    Huỷ Ghi Danh
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </div>
     </div>
   );
