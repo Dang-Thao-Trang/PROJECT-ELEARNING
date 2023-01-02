@@ -13,7 +13,7 @@
             .navbar-toggler{
                 border: white !important;
                 background-color: yellowgreen !important;
-                padding: 10px !important;
+                padding: 8px !important;
             }
             .navbar-collapse{
                 .menue{
@@ -35,12 +35,12 @@
                         overflow: hidden;
                         .input{
                             border-radius: 10px 0 0 10px ;
-                        padding: 0 10px;
+                            padding: 0 10px;
 
                         }
                         .btn_search{
                             font-size: 15px;
-                            padding: 2px 6px;
+                            padding: 3px 6px;
                             border-radius: 0 10px 10px 0;
                         }
 
@@ -49,13 +49,13 @@
             }
         }
      }
-// header đã đăng nhập
+    // header đã đăng nhập
     .signedin {
         margin: -10px 10px 0 0;
         a{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-decoration: none;
-        font-weight:800;
+            text-decoration: none;
+            font-weight:800;
          }
     }
     // header chưa đăng nhập
@@ -65,11 +65,12 @@
             border: 1px solid chocolate;
             font-size: 30px;
             border-radius: 50%;
-            }
+        }
         a{
             color: wheat;
             text-decoration: none;
             font-size: 15px;
+            margin-left: 3px;
             opacity: 0.8;
             transition: all 0.5;
             &:hover{
@@ -101,15 +102,14 @@
                          font-size: 18px;
                      }
                      .search{
-                         margin-left: 10px !important;
+                        //  margin-left: 10px !important;
                          margin-right:  -70px;
                          .input{
-                             width: 60%;
                              font-size: 20px;
                              padding: 12px 5px;
                          }
                          .btn_search{
-                             font-size: 13px;
+                             font-size: 14px;
                          }
  
                      }   
@@ -119,7 +119,40 @@
       }
     }
 }
-  @media screen and (max-width:992px) {
+
+@media screen and (max-width:1200px) {
+    .header{     
+     .navbar{
+         .container{
+             .navbar-brand img{
+                 width: 130px;
+             }   
+             .navbar-collapse{                
+                 .menue{
+                     a{
+                         line-height: 2.2;
+                         font-size: 18px;
+                     }
+                     .search{
+                         margin-left: 8px !important;
+                         margin-right:  -50px;
+                         .input{
+                             font-size: 16px;
+                             padding: 8px 5px;
+                         }
+                         .btn_search{
+                             font-size: 12px;
+                         }
+ 
+                     }   
+                 }
+             }
+         }
+      }
+    }
+}
+
+  @media screen and (max-width:1040px) {
    .header{     
     .navbar{
         .container{
@@ -130,12 +163,11 @@
             .navbar-collapse{                
                 .menue{
                     a{
-                        font-size: 15px;
+                        font-size: 16px;
                     }
                     .search{
-                        margin-right:  -80px;
+                        margin-right:  -40px;
                         .input{
-                            width: 50%;
                             font-size: 16px;
                             padding: 5px ;
                         }
@@ -150,27 +182,75 @@
      }
         .signedin {  
             margin: -10px 20px 0 10px;
-            .user span{
-                line-height: 5px;
-                font-size: 15px;
+            .user{
+                a{
+                    font-size: 16px;
+                }
+                span{
+                    line-height: 5px;
+                    font-size: 15px;
+                }
             }
-            .dropdown-menu{
-                font-size: 15px;
-            }
-
         } 
         .auth{
             margin-right: -10px;
             .logo_sign,.logo_sign{
-                padding: 2px;
-                font-size: 20px;
+                padding: 1px;
+                font-size: 18px;
                 }
-            a{
-                font-size: 13px;
-            }         
+                .signin,.signup{
+                    margin: 0;
+                    a{
+                        padding: 4px;
+                        font-size: 15px !important;
+                    } 
+                }          
         }
        
    }
+  }
+
+  @media screen and (max-width:840px) {
+    .header{     
+        .navbar{
+            .container{
+                max-width: 95vw;
+                .navbar-brand img{
+                    width: 100px;
+                }   
+                .navbar-collapse{                
+                    .menue{
+                        a{
+                            font-size: 14px;
+                        }
+                        .search{
+                            margin-right:  -20px;
+                            .input{
+                                font-size: 13px;
+                            }
+                            .btn_search{
+                                font-size: 12px;
+                            }
+    
+                        }   
+                    }
+                }
+            }
+         }
+            .auth{
+                .logo_sign,.logo_sign{
+                    padding: 1px;
+                    font-size: 18px;
+                    }
+                 .signin,.signup{
+                    margin: 0;
+                    a{
+                        padding: 2px;
+                        font-size: 14px !important;
+                    } 
+                }         
+            }         
+    } 
   }
 
   @media screen and (max-width:768px) {
@@ -181,15 +261,36 @@
                 .navbar-brand img{
                     width: 200px;
                 }   
+                .navbar-toggler{
+                    font-size: 20px;
+                    padding: 7px !important;
+                }
             }
         }
-        .show .navbar-nav{
-            padding-top: 20px;
-            gap: 0 !important;           
-        }
-        .menue a{
-            margin: 0px 30px;
-            border-bottom: 1px solid #3D0000;
+        .show {
+            margin: 20px 0;
+            .menue{
+                padding-top: 0px;
+                gap: 0 !important; 
+                a{
+                    font-size: 20px !important;
+                    border-bottom: 1px solid #3D0000;
+                }
+                .search{
+                    width: 100%;
+                    margin-right:  -60px;
+                    margin-top: 20px !important;
+                    .input{
+                        font-size: 18px !important;
+                        padding: 8px 5px !important;
+                    }
+                    .btn_search{
+                        font-size: 12px;
+                    }
+
+                }          
+            }
+        }         
         }
         .signedin{
             .user{
@@ -201,24 +302,64 @@
             }           
         } 
         .auth{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
             .logo_sign{
-            margin: 10px 0;
-            font-size: 25px;
+            margin: 5px;
+            font-size: 25px !important;
             }
            .signin,.signup{
-               margin: 0 auto;
+               margin: 0 10px;
                a{
-                font-size: 15px;
+                font-size: 20px !important;
             } 
            }                    
         }     
     }  
-  }
+  
 
-  @media screen and (max-width:576px) {
-      .navbar .nav-link{
-        font-size: 14px;      
-    }                 
-  }
+    @media screen and (max-width:568px) {
+        .header{
+            .navbar{
+                .container{
+                    .navbar-brand img{
+                        width: 150px;
+                    }   
+                    .navbar-toggler{
+                        font-size: 16px;
+                        padding: 5px !important;
+                    }
+                }
+            }
+            .show {
+                .menue{ 
+                    a{
+                        font-size: 16px !important;
+                    }
+                    .search{
+                        .input{
+                            font-size: 16px !important;
+                            padding: 8px 5px !important;
+                        }
+                       }          
+                }
+            }         
+            }
+            .auth{
+                display: flex;
+                align-items: center;
+                margin: 20px 0 !important;
+                .logo_sign{
+                margin: 5px;
+                font-size: 22px !important;
+                }
+               .signin,.signup{
+                   margin:  0 6px  !important;
+                   a{
+                    font-size: 16px !important;
+                    padding: 0 !important;
+                } 
+               }                    
+            }     
+        } 

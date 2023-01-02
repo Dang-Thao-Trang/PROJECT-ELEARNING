@@ -78,6 +78,9 @@ const Course = () => {
                   src={item.hinhAnh}
                   alt={item.tenKhoaHoc}
                 />
+                <Card.Body>
+                  <Card.Title>{item.tenKhoaHoc}</Card.Title>
+                </Card.Body>
               </Card>
             </div>
             <span></span>

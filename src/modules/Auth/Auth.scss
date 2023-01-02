@@ -1,5 +1,4 @@
 .authentication{
-    // background-image: url("https://www.tgv.com.my/media/d7e6d3a6-fceb-4b00-a640-e2b7c904071e/d7e6d3a6-fceb-4b00-a640-e2b7c904071e-original.jpg");
     background-image: url('https://jobflare-wordpress-public.s3.amazonaws.com/wp-content/uploads/2020/08/Web-Developer-Header.png');
     position: relative;
      background-size: 100%;
@@ -7,12 +6,4 @@
      background-position: top;
      margin-top: 20px;
     padding: 100px 0;
-     .overlay{
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(133, 130, 130, 0.303);
-       }
 }

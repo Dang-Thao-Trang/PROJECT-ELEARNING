@@ -80,7 +80,7 @@
         // display: flex;
         .write{
             p{
-                font-size: 18px;
+                font-size: 15px;
                 color: rgba(255, 255, 255, 0.435);
                 
             }
@@ -94,5 +94,255 @@
             }
         }
         
+    }
+}
+
+// reponse
+@media screen and (max-width: 992px) {
+    .footer{
+        .container{
+            max-width: 85vw;
+            margin: 10px auto;
+        }
+        //top
+        .ft_top{    
+            .info_email{
+                padding: 10px 20px;
+                .info_title{
+                    font-size: 19px;
+                    padding: 10px;
+                }
+                p{
+                    font-size: 17px;
+                }
+                .input-group{
+                    input{
+                        font-size: 17px;
+                    }
+                    .btn_info{
+                        font-size: 15px;
+                    }
+                }
+                
+                }
+            .direct{
+                .ft_direrct{
+                    background-color: #95b66dda;
+                    p{
+                        margin: 3px;
+                        padding: 3px 0;
+                    }
+                }
+                .ft_img{
+                    width: 30vw;
+                    height: 150px;                   
+                } 
+            }
+        }
+        // bottom
+        .ft_bottom{
+            // display: flex;
+            .write{
+                p{
+                    font-size: 15px;                    
+                }
+            }
+            .icon{
+                a{
+                    font-size: 28px;
+                }
+            }
+            
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .footer{
+        .container{
+            max-width: 90vw;
+        }
+        //top
+        .ft_top{    
+            .info_email{
+                .info_title{
+                    font-size: 17px;
+                }
+                p{
+                    font-size: 15px;
+                }
+                .input-group{
+                    input{
+                        font-size: 15px;
+                    }
+                    .btn_info{
+                        font-size: 12px;
+                    }
+                }
+                
+                }
+            .direct{
+                .ft_direrct{
+                    background-color: #95b66dda;
+                    p{
+                        margin: 3px;
+                        padding: 3px 0;
+                        font-size: 15px;
+                    }
+                }
+                .ft_img{
+                    width: 30vw;
+                    height: 150px;                   
+                } 
+            }
+        }
+         //center
+        .ft_center{
+            h6{
+                font-size: 18px;
+            }
+            p{
+                font-size: 13px;
+            }
+        }
+        // bottom
+        .ft_bottom{
+            // display: flex;
+            .write{
+                p{
+                    font-size: 11px;                    
+                }
+            }
+            .icon{
+                a{
+                    margin: 5px;
+                    font-size: 24px;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer{
+        .container{
+            max-width: 95vw;
+        }
+        //top
+        .ft_top{    
+            .info_email{
+                .info_title{
+                    font-size: 15px;
+                }
+                p{
+                    font-size: 13px;
+                }
+                .input-group{
+                    input{
+                        font-size: 13px;
+                    }
+                    .btn_info{
+                        font-size: 8px;
+                    }
+                }
+                
+                }
+            .direct{
+                .ft_direrct{
+                    p{
+                        margin: 3px;
+                        padding: 3px 0;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+         //center
+        .ft_center{
+            h6{
+                font-size: 16px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+        // bottom
+        .ft_bottom{
+            // display: flex;
+            .write{
+                p{
+                    font-size: 10px;                    
+                }
+            }
+            .icon{
+                a{
+                    margin: 2px 3px;
+                    font-size: 22px;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .footer{
+        .container{
+            max-width: 95vw;
+        }
+        //top
+        .ft_top{    
+            .info_email{
+                .info_title{
+                    font-size: 15px;
+                }
+                p{
+                    font-size: 11px;
+                }
+                .input-group{
+                    input{
+                        font-size: 11px;
+                    }
+                    .btn_info{
+                        font-size: 6px;
+                    }
+                }
+                
+                }
+            .direct{
+                .ft_direrct{
+                    p{
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+         //center
+        .ft_center{
+            h6{
+                font-size: 14px;
+            }
+            p{
+                font-size: 10px;
+            }
+        }
+        // bottom
+        .ft_bottom{
+            // display: flex;
+            .write{
+                p{
+                    font-size: 8px;                    
+                }
+            }
+            .icon{
+                a{
+                    margin: 2px 3px;
+                    font-size: 20px;
+                }
+            }
+            
+        }
     }
 }

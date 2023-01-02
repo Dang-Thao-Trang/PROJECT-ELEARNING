@@ -53,39 +53,85 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
-    .show{
-        .nav-tabs{
-            .nav-item{
-                .nav-link{
-                    font-size: 18px;
-                }
-            }
-        }
-    }
-}
 
 @media screen and (max-width: 992px) {
     .show{
         .nav-tabs{
             .nav-item{
                 .nav-link{
-                    font-size: 16px;
+                    font-size: 19px;
                 }
             }
         }
+        .show_list{
+           .card_item{
+               .card-body{
+                    .card-title{
+                    font-size: 18px;
+                    }
+                }
+            }           
+        } 
     }
 }
 
+    
+
+
 @media screen and (max-width: 768px) {
     .show{
+        .nav-tabs{
+            .nav-item{
+                .nav-link{
+                    font-size: 17px;
+                }
+            }
+        }
         .show_list{
             max-width: 90%;
            .card_item{
-               width: 40vw;
-                height: 40vw;
+               width: 35vw;
+                height: 35vw;
+                .card-body{
+                    .card-title{
+                        font-size: 17px;
+                    }
+                }
            } 
         }
+       
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .show{
+        .nav-tabs{
+            .nav-item{
+                .nav-link{
+                    font-size: 15px;
+                }
+            }
+        }
+        .show_list{
+            max-width: 60%;
+            margin: auto;
+           .card_item{
+               width: 50vw;
+                height: 50vw;
+                .card-body{
+                    .card-title{
+                        font-size: 15px;
+                    }
+                }
+           } 
+        }
+       
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .show{
         .nav-tabs{
             .nav-item{
                 .nav-link{
@@ -93,29 +139,19 @@
                 }
             }
         }
-    }
-}
-
-
-@media screen and (max-width: 576px) {
-    .show{
         .show_list{
-            max-width: 90%;
+            max-width: 70%;
             margin: auto;
            .card_item{
-               width: 60vw;
+               width: 55vw;
                 height: 50vw;
+                .card-body{
+                    .card-title{
+                        font-size: 14px;
+                    }
+                }
            } 
         }
-        .nav-tabs{
-            .nav-item{
-                .nav-link{
-                    font-size: 12px;
-                }
-            }
-        }
+       
     }
-}
-
-@media screen and (max-width: 1200px) {
 }

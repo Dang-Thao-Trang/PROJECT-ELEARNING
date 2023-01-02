@@ -1,0 +1,22 @@
+.banner{
+    padding: 25%;
+    position: relative;
+    border-bottom: 3px solid rgb(35, 166, 210);
+    .video_banner{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner{
+        padding: 30%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner{
+        padding: 40%;
+    }
+}

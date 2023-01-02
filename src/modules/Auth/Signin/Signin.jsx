@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useSearchParams } from "react-router-dom";
-// import { signin, clearError } from "../../../slices/authSlice";
 import { BsPersonFill } from "react-icons/bs";
 import { RiLockPasswordFill } from "react-icons/ri";
 import swal from "sweetalert";
@@ -12,9 +11,7 @@ import { signin, clearError } from "../../../slices/authSlice";
 const Signin = () => {
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.auth);
-
   const [searchParams, setSearchParams] = useSearchParams();
-
   const { register, handleSubmit, formState } = useForm({
     defaultValues: { taiKhoan: "", matKhau: "" },
     mode: "onTouched", // điều kiện kích hoạt validation, mặc định onSubmit
@@ -30,9 +27,18 @@ const Signin = () => {
     (values) => {
       if (error) {
         dispatch(clearError(values));
-        swal("Đăng nhập thất bại", "Vui lòng kiểm tra tài khoản!'", "error");
+        swal({
+          title: "Đăng nhập thất bại! Vui lòng kiểm tra tài khoản!",
+          icon: "error",
+          buttons: true,
+          dangerMode: true,
+        });
       } else if (user && !error) {
-        swal("Đăng nhập thành công", "success");
+        swal({
+          title: "Đăng nhập thành công!",
+          icon: "success",
+          button: true,
+        });
       }
     },
     [user, error]

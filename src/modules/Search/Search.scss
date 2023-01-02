@@ -1,21 +1,23 @@
-.course{
-    background-color: #8db6d0;
-    padding: 40px 0;
-    .course_title{
+.search{
+    // background-color: #8db6d0;
+    background-color: #EAE7B1;
+    position: relative;
+    .search_title{
+        position: absolute;
+        top :16%;
         text-align: center;
         width: 60vw;
-        margin: auto;
         padding: 10px 0;
         font-size: 24px;
         font-weight: 600;
         color: white;
         letter-spacing: 5px;
-        background-color: #8db6d04b;
+        background-color: #E98EAD;
         box-shadow: -10px 10px 10px rgba(rgb(232, 221, 221), 0.5);
-
     }
     .mySwiper{
-        max-width: 85%;
+        padding-top: 120px;
+        max-width: 85%;      
         .card_item{
             margin: 15px 0;
             .card{
@@ -51,7 +53,7 @@
                    bottom: 0;
                     color: #000;
                     font-weight: 600;
-                    font-size: 20px;
+                    font-size: 22px;
                 }
             }
             
@@ -93,9 +95,9 @@
 }
 
 @media screen and (max-width: 768px) {
-    .course{
-        .course_title{
-            font-size: 20px;
+    .search{
+        .search_title{
+            font-size: 18px;
         }
         .swiper-button-prev,
         .swiper-button-next {
@@ -105,12 +107,18 @@
     }
 }
 @media screen and (max-width: 450px) {
-    .course{
-        .course_title{
-            font-size: 16px;
+    .search{
+        .search_title{
+            font-size: 15px;
+            top: 25%
         }
         .swiper-pagination{
             display: none;
         }
+        .swiper-button-prev,.swiper-button-next{
+            margin-top: 50px;
+            color: #12d33c;
+        }
     }
+   
 }

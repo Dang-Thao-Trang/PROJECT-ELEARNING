@@ -4,24 +4,24 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUserEdit, FaUserLock, FaUserPlus } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import "./Header.scss";
-
-// boostrap
 import { Container, Navbar, Nav } from "react-bootstrap";
-// import HamburgerMenue from "react-hamburger-menu";
 import HamburgerMenue from "hamburger-react";
 
 const Header = () => {
   const navigate = useNavigate();
   const [onScroll, setOnScroll] = useState(false);
   const [openMenue, setOpenMenue] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setOnScroll(window.scrollY > 80);
     });
   }, []);
+
   const { register, handleSubmit, formState, reset } = useForm({
     defaultValues: { tenKhoaHoc: "" },
   });
+  // tìm kiếm khoá học
   const onSubmit = (value) => {
     if (value === "") {
       return;
@@ -72,8 +72,8 @@ const Header = () => {
             <Nav className="mx-auto gap-2 menue">
               <Link to="/">Home</Link>
               <Link to="/category">Danh Muc</Link>
-              <Link to="/#course">Khoá Học</Link>
-              <Link to="/#footer">Tư vấn</Link>
+              {/* <Link to="/#course">Khoá Học</Link> */}
+              <a href="#footer">Tư vấn</a>
               <form onSubmit={handleSubmit(onSubmit)} className="d-flex search">
                 <input
                   {...register("tenKhoaHoc")}
@@ -81,7 +81,7 @@ const Header = () => {
                   type="search"
                   placeholder="Nhập khóa học "
                 />
-                <button type="submit" className="btn btn-warning">
+                <button type="submit" className="btn btn-warning btn_search">
                   Tìm
                 </button>
               </form>
@@ -98,11 +98,11 @@ const Header = () => {
             ) : (
               <Nav className="auth">
                 <div className="signin me-3">
-                  <Link to="/signin">
+                  <Link to="/signin" className="signin">
                     <FaUserLock className="logo_sign" />
                     Đăng nhập
                   </Link>
-                  <Link to="/signup">
+                  <Link to="/signup" className="signup">
                     <FaUserPlus className="logo_sign" />
                     Đăng ký
                   </Link>

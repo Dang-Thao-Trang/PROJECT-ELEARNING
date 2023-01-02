@@ -1,0 +1,122 @@
+.page_loader {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #000;
+}
+.page_loader .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vw;
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+}
+.page_loader .loader::before,
+.page_loader .loader::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  -webkit-animation: 0.8s spin linear infinite;
+          animation: 0.8s spin linear infinite;
+}
+.page_loader .loader::before {
+  transform: rotateX(70deg);
+}
+.page_loader .loader::after {
+  transform: rotateY(70deg);
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+@-webkit-keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes rotateccw {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0%, 100% {
+    box-shadow: 5px 0px 0 0px #ff3e00;
+  }
+  12% {
+    box-shadow: 5px 5px 0 0 #ff3e00;
+  }
+  25% {
+    box-shadow: 0 5px 0 0px #ff3e00;
+  }
+  37% {
+    box-shadow: -5px 5px 0 0 #ff3e00;
+  }
+  50% {
+    box-shadow: -5px 0 0 0 #ff3e00;
+  }
+  62% {
+    box-shadow: -5px -5px 0 0 #ff3e00;
+  }
+  75% {
+    box-shadow: 0px -5px 0 0 #ff3e00;
+  }
+  87% {
+    box-shadow: 5px -5px 0 0 #ff3e00;
+  }
+}
+@keyframes spin {
+  0%, 100% {
+    box-shadow: 5px 0px 0 0px #ff3e00;
+  }
+  12% {
+    box-shadow: 5px 5px 0 0 #ff3e00;
+  }
+  25% {
+    box-shadow: 0 5px 0 0px #ff3e00;
+  }
+  37% {
+    box-shadow: -5px 5px 0 0 #ff3e00;
+  }
+  50% {
+    box-shadow: -5px 0 0 0 #ff3e00;
+  }
+  62% {
+    box-shadow: -5px -5px 0 0 #ff3e00;
+  }
+  75% {
+    box-shadow: 0px -5px 0 0 #ff3e00;
+  }
+  87% {
+    box-shadow: 5px -5px 0 0 #ff3e00;
+  }
+}/*# sourceMappingURL=Loading.css.map */

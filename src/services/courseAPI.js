@@ -1,11 +1,11 @@
 import fetcher from "./fetcher";
 const courseAPI = {
+  // mục khoá học
   getCategory: () => {
     return fetcher.get("QuanLyKhoaHoc/LayDanhMucKhoaHoc", {
       params: { maNhom: "GP01" },
     });
   },
-
   getShowCatagory: (maDanhMuc) => {
     return fetcher.get("QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc", {
       params: {
@@ -15,6 +15,7 @@ const courseAPI = {
     });
   },
 
+  // lấy danh sách khoá học
   getCourse: () => {
     return fetcher.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc", {
       params: {
@@ -22,7 +23,6 @@ const courseAPI = {
       },
     });
   },
-  // khoá học
   getCourseItem: (courseId) => {
     return fetcher.get("QuanLyKhoaHoc/LayThongTinKhoaHoc", {
       params: {
@@ -31,6 +31,7 @@ const courseAPI = {
     });
   },
 
+  // tìm khoá học theo tên
   searchCourses: (nameCourses) => {
     return fetcher.get("QuanLyKhoaHoc/LayDanhSachKhoaHoc", {
       params: {
@@ -39,11 +40,12 @@ const courseAPI = {
     });
   },
 
-  // dang ky khoa hoc
+  // đăng ký khoá học
   getRegister: (registered) => {
     return fetcher.post("QuanLyKhoaHoc/DangKyKhoaHoc", registered);
   },
 
+  // huỷ ghi danh
   getDeleteRegister: (registered) => {
     return fetcher.post("QuanLyKhoaHoc/HuyGhiDanh", registered);
   },

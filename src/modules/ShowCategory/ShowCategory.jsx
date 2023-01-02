@@ -6,7 +6,6 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import courseAPI from "../../services/courseAPI";
 import "./ShowCategory.scss";
-
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";

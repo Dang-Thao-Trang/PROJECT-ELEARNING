@@ -28,10 +28,22 @@ const Signup = () => {
     const data = await dispatch(signupAction(values));
 
     if (data.type === "auth/signup/fulfilled") {
-      alert("success");
+      // alert("success");
+      swal({
+        title: "Đăng ký thành công! Đăng nhập tài khoản ngay!!!",
+        icon: "success",
+        buttons: true,
+        dangerMode: true,
+      });
       navigate("/signin");
     } else {
       alert(data.error.message);
+      swal({
+        title: "Vui lòng đăng ký theo yêu cầu!",
+        icon: "error",
+        buttons: true,
+        dangerMode: true,
+      });
     }
   };
 

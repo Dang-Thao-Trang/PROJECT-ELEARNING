@@ -15,7 +15,7 @@
 .header .navbar .container .navbar-toggler {
   border: white !important;
   background-color: yellowgreen !important;
-  padding: 10px !important;
+  padding: 8px !important;
 }
 .header .navbar .container .navbar-collapse .menue a {
   text-decoration: none;
@@ -36,10 +36,11 @@
 }
 .header .navbar .container .navbar-collapse .menue .search .input {
   border-radius: 10px 0 0 10px;
+  padding: 0 10px;
 }
 .header .navbar .container .navbar-collapse .menue .search .btn_search {
   font-size: 15px;
-  padding: 2px 6px;
+  padding: 3px 6px;
   border-radius: 0 10px 10px 0;
 }
 .header .signedin {
@@ -60,6 +61,7 @@
   color: wheat;
   text-decoration: none;
   font-size: 15px;
+  margin-left: 3px;
   opacity: 0.8;
   transition: all 0.5;
 }
@@ -84,19 +86,37 @@
     font-size: 18px;
   }
   .header .navbar .container .navbar-collapse .menue .search {
-    margin-left: 10px !important;
     margin-right: -70px;
   }
   .header .navbar .container .navbar-collapse .menue .search .input {
-    width: 60%;
     font-size: 20px;
     padding: 12px 5px;
   }
   .header .navbar .container .navbar-collapse .menue .search .btn_search {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
+  .header .navbar .container .navbar-brand img {
+    width: 130px;
+  }
+  .header .navbar .container .navbar-collapse .menue a {
+    line-height: 2.2;
+    font-size: 18px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search {
+    margin-left: 8px !important;
+    margin-right: -50px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .input {
+    font-size: 16px;
+    padding: 8px 5px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .btn_search {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1040px) {
   .header .navbar .container {
     max-width: 95vw;
   }
@@ -104,13 +124,12 @@
     width: 100px;
   }
   .header .navbar .container .navbar-collapse .menue a {
-    font-size: 15px;
+    font-size: 16px;
   }
   .header .navbar .container .navbar-collapse .menue .search {
-    margin-right: -80px;
+    margin-right: -40px;
   }
   .header .navbar .container .navbar-collapse .menue .search .input {
-    width: 50%;
     font-size: 16px;
     padding: 5px;
   }
@@ -120,22 +139,57 @@
   .header .signedin {
     margin: -10px 20px 0 10px;
   }
+  .header .signedin .user a {
+    font-size: 16px;
+  }
   .header .signedin .user span {
     line-height: 5px;
-    font-size: 15px;
-  }
-  .header .signedin .dropdown-menu {
     font-size: 15px;
   }
   .header .auth {
     margin-right: -10px;
   }
   .header .auth .logo_sign, .header .auth .logo_sign {
-    padding: 2px;
-    font-size: 20px;
+    padding: 1px;
+    font-size: 18px;
   }
-  .header .auth a {
+  .header .auth .signin, .header .auth .signup {
+    margin: 0;
+  }
+  .header .auth .signin a, .header .auth .signup a {
+    padding: 4px;
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 840px) {
+  .header .navbar .container {
+    max-width: 95vw;
+  }
+  .header .navbar .container .navbar-brand img {
+    width: 100px;
+  }
+  .header .navbar .container .navbar-collapse .menue a {
+    font-size: 14px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search {
+    margin-right: -20px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .input {
     font-size: 13px;
+  }
+  .header .navbar .container .navbar-collapse .menue .search .btn_search {
+    font-size: 12px;
+  }
+  .header .auth .logo_sign, .header .auth .logo_sign {
+    padding: 1px;
+    font-size: 18px;
+  }
+  .header .auth .signin, .header .auth .signup {
+    margin: 0;
+  }
+  .header .auth .signin a, .header .auth .signup a {
+    padding: 2px;
+    font-size: 14px !important;
   }
 }
 @media screen and (max-width: 768px) {
@@ -145,38 +199,85 @@
   .header .navbar .container .navbar-brand img {
     width: 200px;
   }
-  .header .show .navbar-nav {
-    padding-top: 20px;
+  .header .navbar .container .navbar-toggler {
+    font-size: 20px;
+    padding: 7px !important;
+  }
+  .header .show {
+    margin: 20px 0;
+  }
+  .header .show .menue {
+    padding-top: 0px;
     gap: 0 !important;
   }
-  .header .menue a {
-    margin: 0px 30px;
+  .header .show .menue a {
+    font-size: 20px !important;
     border-bottom: 1px solid #3D0000;
   }
-  .header .signedin .user {
+  .header .show .menue .search {
+    width: 100%;
+    margin-right: -60px;
+    margin-top: 20px !important;
+  }
+  .header .show .menue .search .input {
+    font-size: 18px !important;
+    padding: 8px 5px !important;
+  }
+  .header .show .menue .search .btn_search {
+    font-size: 12px;
+  }
+  .signedin .user {
     text-align: center;
   }
-  .header .signedin .btn-logout {
+  .signedin .btn-logout {
     margin: 20px 20px;
     display: block;
   }
-  .header .auth {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .auth {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
   }
-  .header .auth .logo_sign {
-    margin: 10px 0;
-    font-size: 25px;
+  .auth .logo_sign {
+    margin: 5px;
+    font-size: 25px !important;
   }
-  .header .auth .signin, .header .auth .signup {
-    margin: 0 auto;
+  .auth .signin, .auth .signup {
+    margin: 0 10px;
   }
-  .header .auth .signin a, .header .auth .signup a {
-    font-size: 15px;
+  .auth .signin a, .auth .signup a {
+    font-size: 20px !important;
   }
 }
-@media screen and (max-width: 576px) {
-  .navbar .nav-link {
-    font-size: 14px;
+@media screen and (max-width: 568px) {
+  .header .navbar .container .navbar-brand img {
+    width: 150px;
+  }
+  .header .navbar .container .navbar-toggler {
+    font-size: 16px;
+    padding: 5px !important;
+  }
+  .header .show .menue a {
+    font-size: 16px !important;
+  }
+  .header .show .menue .search .input {
+    font-size: 16px !important;
+    padding: 8px 5px !important;
+  }
+  .auth {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 !important;
+  }
+  .auth .logo_sign {
+    margin: 5px;
+    font-size: 22px !important;
+  }
+  .auth .signin, .auth .signup {
+    margin: 0 6px !important;
+  }
+  .auth .signin a, .auth .signup a {
+    font-size: 16px !important;
+    padding: 0 !important;
   }
 }/*# sourceMappingURL=Header.css.map */

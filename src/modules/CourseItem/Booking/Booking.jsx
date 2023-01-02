@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import useRequest from "../../../Hooks/useRequest";
 import courseAPI from "../../../services/courseAPI";
@@ -10,10 +9,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Booking = ({ courseId }) => {
   const { data: course } = useRequest(() => courseAPI.getCourseItem(courseId));
   const { user } = useSelector((state) => state.auth);
-  // const MySwal = withReactContent(swal);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
 
   const handleSubmit = () => {
     if (user) {
@@ -24,7 +21,6 @@ const Booking = ({ courseId }) => {
               maKhoaHoc: course.maKhoaHoc,
               taiKhoan: user.taiKhoan,
             });
-            console.log(123);
           } catch (error) {
             console.log(error);
           }
@@ -44,7 +40,9 @@ const Booking = ({ courseId }) => {
             swal("Your imaginary file is safe!");
           }
         });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       swal({
         icon: "error",

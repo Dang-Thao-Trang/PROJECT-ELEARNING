@@ -5,7 +5,6 @@ import "./Auth.scss";
 const Auth = () => {
   return (
     <div className="authentication">
-      {/* <div className="overlay"></div> */}
       <Outlet />
     </div>
   );

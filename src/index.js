@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import "swiper/css/bundle";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "antd/dist/antd.css";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

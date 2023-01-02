@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import ErrorBoundarry from "../components/ErrorBoundarry";
 import NotFound from "../components/NotFound";
-import RoutLayout from "../components/RoutLayout";
-import AdminUser from "../modules/AdminUser";
-import Auth from "../modules/Auth";
-import Signin from "../modules/Auth/Signin";
-import Signup from "../modules/Auth/Signup";
-import CourseItem from "../modules/CourseItem";
-import Home from "../modules/Home";
-import Search from "../modules/Search";
-import ShowCategory from "../modules/ShowCategory";
+const RoutLayout = lazy(() => import("../components/RoutLayout"));
+const AdminUser = lazy(() => import("../modules/AdminUser"));
+const Auth = lazy(() => import("../modules/Auth"));
+const Signin = lazy(() => import("../modules/Auth/Signin"));
+const Signup = lazy(() => import("../modules/Auth/Signup"));
+const CourseItem = lazy(() => import("../modules/CourseItem"));
+const Home = lazy(() => import("../modules/Home"));
+const Search = lazy(() => import("../modules/Search"));
+const ShowCategory = lazy(() => import("../modules/ShowCategory"));
 
 const routes = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ const routes = createBrowserRouter([
       },
     ],
   },
-
+  // not found
   { path: "*", element: <NotFound /> },
 ]);
 

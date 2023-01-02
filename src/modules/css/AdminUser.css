@@ -1,15 +1,104 @@
-.admin .container-fluid {
-  max-width: 65vw;
-}
-.admin .container-fluid .row {
+.admin .btn_logout {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
   background-color: rgb(48, 132, 104);
-  border-radius: 30px;
+}
+.admin .btn_logout .button {
+  box-shadow: 10px 10px 1px #AAA;
+}
+.admin .user_update {
+  max-width: 100vw;
+}
+.admin .user_update .row {
+  background-color: rgb(48, 132, 104);
   padding: 20px;
 }
-.admin .container-fluid .row .admin_title {
+.admin .user_update .row .admin_title {
   color: white;
   font-weight: 600;
   padding: 10px 0;
   margin-bottom: 15px;
   text-align: center;
+}
+.admin .user_update .row form {
+  padding: 20px;
+}
+.admin .user_update .row form tr td button {
+  font-size: 20px;
+}
+.admin .user_update .row .img {
+  width: 30vw;
+  height: 480px;
+}
+.admin .user_update .row .img img {
+  width: 100%;
+  height: 100%;
+}
+.admin .registered .regis_title {
+  max-width: 40vw;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #B08BBB;
+  font-size: 26px;
+  font-weight: 600;
+}
+.admin .registered .regis_list {
+  max-width: 90vw;
+  margin: auto;
+}
+.admin .registered .regis_list .table .tbody tr .des {
+  font-size: 16px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  .admin .user_update .row .admin_title {
+    color: white;
+    font-weight: 600;
+  }
+  .admin .user_update .row form .input-group .form-control {
+    font-size: 18px;
+  }
+  .admin .user_update .row .img {
+    height: 430px;
+  }
+  .admin .registered .regis_title {
+    max-width: 60vw;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .admin .registered .regis_list .table .tbody tr td {
+    font-size: 17px;
+  }
+  .admin .registered .regis_list .table .tbody tr td button {
+    font-size: 14px;
+    padding: 5px;
+  }
+  .admin .registered .regis_list .table .tbody tr .des {
+    font-size: 15px;
+    font-style: italic;
+  }
+}
+@media screen and (max-width: 576px) {
+  .admin .user_update .row form .input-group .form-control {
+    font-size: 18px;
+  }
+  .admin .user_update .row .img {
+    display: none;
+  }
+  .admin .registered .regis_title {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .admin .user_update .row form .input-group .form-control {
+    font-size: 16px;
+  }
+  .admin .registered .regis_title {
+    font-size: 19px;
+  }
+  .admin .registered .regis_list .table .tbody tr .des {
+    display: none;
+  }
 }/*# sourceMappingURL=AdminUser.css.map */

@@ -31,6 +31,10 @@
 
 @media screen and (max-width: 992px) {
     .categories{
+        .categories_title{
+            width: 60vw;
+            font-size: 24px;
+        }
         .container-fluid{
             button{
                 padding: 4px 3px;
@@ -42,8 +46,11 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) { 
     .categories{
+        .categories_title{
+            font-size: 20px;
+        }
         .container-fluid{
             button{
                 padding: 4px 2px;
@@ -61,9 +68,7 @@
         .container-fluid{
             display: grid;
             grid-template-columns: repeat(3,1fr);
-            // grid-template-rows: repeat(2, 60px);
             gap: 20px;
-
             button{
                 padding: 4px;
                 overflow: hidden;
@@ -77,16 +82,19 @@
 
 @media screen and (max-width: 450px) {
     .categories{
+        .categories_title{
+            font-size: 16px;
+        }
         .container-fluid{
             display: grid;
             grid-template-columns: repeat(2,1fr);
-            gap: 20px;
+            gap: 10px;
 
             button{
                 padding: 4px;
                 overflow: hidden;
                 span{
-                    font-size: 16px;
+                    font-size: 14px;
                 }
             }
         }

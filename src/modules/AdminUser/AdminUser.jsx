@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-// import { useSelector } from "react-redux";
 import { logout, signin } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,25 +12,10 @@ import courseAPI from "../../services/courseAPI";
 const AdminUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { loading} = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.auth);
   const [useUpdate, setUseUpdate] = useState([]);
   const [detailCourse, setDetailCourse] = useState([]);
-
-  const registerDetail = async () => {
-    try {
-      const { chiTietKhoaHocGhiDanh, ...data } = await authAPI.getUserInfo();
-      reset({ ...data });
-      setDetailCourse(chiTietKhoaHocGhiDanh);
-      console.log(chiTietKhoaHocGhiDanh);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    registerDetail();
-  }, []);
 
   const { register, handleSubmit, formState, reset } = useForm({
     defaultValues: {
@@ -44,6 +28,7 @@ const AdminUser = () => {
     mode: "onTouched",
   });
 
+  //  cập nhật tài khoản
   const onSubmit = (values) => {
     (async () => {
       try {
@@ -58,35 +43,54 @@ const AdminUser = () => {
     })();
   };
 
-  const { user } = useSelector((state) => state.auth);
-
-  const handleDelete = (values) => {
-    (async () => {
-      try {
-        await courseAPI.getDeleteRegister({
-          maKhoaHoc: values,
-          taiKhoan: user.taiKhoan,
-        });
-        registerDetail();
-      } catch (error) {
-        console.log(error);
-      }
-    })();
+  // List khoá học ghi danh
+  const registerDetail = async () => {
+    try {
+      const { chiTietKhoaHocGhiDanh, ...data } = await authAPI.getUserInfo();
+      reset({ ...data });
+      setDetailCourse(chiTietKhoaHocGhiDanh);
+      console.log(chiTietKhoaHocGhiDanh);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  // xoá kkhoá học ghi danh
+  const handleDelete = async (maKhoaHoc) => {
+    try {
+      const data = await courseAPI.getDeleteRegister({
+        maKhoaHoc: maKhoaHoc,
+        taiKhoan: user.taiKhoan,
+      });
+      registerDetail(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    registerDetail();
+  }, []);
+
+  // đăng xuất
   const onLogOut = () => {
     dispatch(logout());
     navigate("/signin");
   };
 
+  const seenCourse = () => {
+    navigate("/");
+  };
   const { errors } = formState;
 
   return (
-    <div className="bg-warning pt-5 mt-5 admin">
-      <div className="container-fluid">
+    <div className="bg-warning mt-5 admin">
+      <div className="container-fluid user_update">
         <div className="row">
-          <h3 className="admin_title">Thông tin của bạn</h3>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="col-12 col-sm-8">
+            <h3 className="admin_title">Thông tin của bạn</h3>
+
             <div className="account my-3 px-4 input-group">
               <input
                 {...register("taiKhoan")}
@@ -184,51 +188,77 @@ const AdminUser = () => {
             </div>
             <div className="text-center footer_form">
               <button
-                // disabled={loading}
+                disabled={loading}
                 className="btn update btn-warning my-1"
               >
                 Cập nhật
               </button>
             </div>
           </form>
-        </div>
-
-        <div
-          onClick={onLogOut}
-          className="btn mx-auto text-center btn-info btn_logout"
-        >
-          Đăng xuất
+          <div className="col-sm-4 img">
+            <img
+              src="https://anhdephd.vn/wp-content/uploads/2022/06/anh-may-tinh-va-laptop-nen-toi.jpg"
+              alt="ảnh minh hoạ"
+              style={{ with: "100%" }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Dang ky khoa hoc */}
-
-      <div className="container">
-        <h4>Khoá học bạn tham gia</h4>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên Khoá Học</th>
-              <th>Mô tả</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {detailCourse.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item.tenKhoaHoc}</td>
-                <td>{item.moTa}</td>
-                <td>
-                  <button onClick={() => handleDelete(item.maKhoaHoc)}>
-                    Huỷ Ghi Danh
-                  </button>
-                </td>
+      {/* Danh sách khoá học ghi danh*/}
+      <div className="registered">
+        <h4 className="regis_title">Khoá học bạn đã ghi danh</h4>
+        <div className="container-fluid regis_list">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên Khoá Học</th>
+                <th>Mô tả</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody className="tbody">
+              {detailCourse.map((item, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{item.tenKhoaHoc}</td>
+                  <td className="des">
+                    {item.moTa.length > 100
+                      ? item.moTa.substring(0, 300) + "..."
+                      : item.moTa}
+                  </td>
+                  <td>
+                    <div>
+                      <button
+                        className="btn btn-light"
+                        onClick={() => navigate(`/course/${item.maKhoaHoc}`)}
+                      >
+                        Xem khoá học
+                      </button>
+                      <button
+                        onClick={() => handleDelete(item.maKhoaHoc)}
+                        className="btn btn-danger btn_delete"
+                      >
+                        Huỷ Ghi Danh
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      </div>
+
+      {/* Đăng xuất */}
+      <div className=" btn_logout">
+        <div
+          onClick={onLogOut}
+          className="btn mx-auto text-center btn-danger button"
+        >
+          Đăng xuất
+        </div>
       </div>
     </div>
   );
