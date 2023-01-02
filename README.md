@@ -7,7 +7,7 @@ Thành viên :
   - Công việc 100% website.
 
   - WebDeloy: https://bc32-proeject-elearning-nhom-thao-trang-xuan-hoang-71kyev53i.vercel.app/
-  - YouTube:
+  - YouTube: https://youtu.be/pxqq_3wD5tQ
 
 - Võ Đinh Xuân Hoàng:
 
